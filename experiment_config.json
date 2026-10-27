@@ -1,0 +1,45 @@
+{
+  "seed": 2026,
+  "n_realizations_per_sweep_point": 100,
+  "n_tx": 64,
+  "n_users": 4,
+  "n_paths_per_user": 3,
+  "default_n_rf": 4,
+  "snr_grid_db": [
+    0.0,
+    5.0,
+    10.0,
+    15.0,
+    20.0,
+    25.0,
+    30.0
+  ],
+  "csi_nmse_grid_db": [
+    -30.0,
+    -20.0,
+    -10.0,
+    0.0
+  ],
+  "rf_chain_grid": [
+    4,
+    6,
+    8
+  ],
+  "channel_model": "narrowband sparse geometric ULA, 3 paths per user",
+  "precoder_power_normalization": "Frobenius norm squared equals 1",
+  "methods": [
+    "Digital-RZF-Estimated-CSI",
+    "Digital-RZF-Uncertainty-Aware",
+    "Hybrid-OMP-RZF",
+    "Hybrid-OMP-Robust-RZF",
+    "DFT-Codebook-RZF",
+    "DFT-Codebook-Robust-RZF",
+    "Digital-RZF-Perfect-CSI"
+  ],
+  "uncertainty_aware_regularization": "alpha = K / SNR_linear + K * target_CSI_NMSE_linear; target NMSE is supplied to the algorithm in simulation",
+  "limitations": [
+    "Not a 3GPP-compliant or wideband OFDM simulator",
+    "No path loss, blockage, phase-shifter quantization, or hardware nonlinearity",
+    "Uncertainty-aware RZF uses a simple regularization heuristic, not a proven optimum"
+  ]
+}
